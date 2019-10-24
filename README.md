@@ -116,7 +116,7 @@ lr = tf.TransformListener()
 ## Citations
 Please cite [6-PACK](https://sites.google.com/view/6packtracking) if you use this repository in your publications:
 ```
-@article{wang20196pack,
+@article{wang20196-pack,
   title={6-PACK: Category-level 6D Pose Tracker with Anchor-Based Keypoints},
   author={Wang, Chen and Mart{\'\i}n-Mart{\'\i}n, Roberto and Xu, Danfei and Lv, Jun and Lu, Cewu and Fei-Fei, Li and Savarese, Silvio and Zhu, Yuke},
   journal={arXiv preprint arXiv},
