@@ -1,0 +1,6 @@
+3 camera_canon_len_norm scene_4
+3 camera_canon_len_norm scene_1
+3 camera_canon_wo_len_norm scene_3
+3 camera_canon_wo_len_norm scene_5
+3 camera_shengjun_norm scene_2
+3 camera_shengjun_norm scene_5

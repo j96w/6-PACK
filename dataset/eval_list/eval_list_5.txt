@@ -1,0 +1,6 @@
+5 laptop_air_xin_norm scene_2
+5 laptop_air_xin_norm scene_1
+5 laptop_alienware_norm scene_6
+5 laptop_alienware_norm scene_5
+5 laptop_mac_pro_norm scene_3
+5 laptop_mac_pro_norm scene_4

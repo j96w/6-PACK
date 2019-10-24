@@ -1,0 +1,6 @@
+4 can_arizona_tea_norm scene_4
+4 can_arizona_tea_norm scene_1
+4 can_green_norm scene_4
+4 can_green_norm scene_2
+4 can_lotte_milk_norm scene_3
+4 can_lotte_milk_norm scene_6

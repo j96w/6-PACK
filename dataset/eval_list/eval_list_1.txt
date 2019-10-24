@@ -1,0 +1,7 @@
+1 bottle_red_stanford_norm scene_4
+1 bottle_red_stanford_norm scene_2
+1 bottle_shampoo_norm scene_4
+1 bottle_shampoo_norm scene_5
+1 bottle_shengjun_norm scene_3
+1 bottle_shengjun_norm scene_3
+1 bottle_shengjun_norm scene_5

@@ -1,0 +1,5 @@
+2 bowl_blue_white_chinese_norm scene_6
+2 bowl_shengjun_norm scene_3
+2 bowl_white_small_norm scene_6
+2 bowl_white_small_norm scene_1
+2 bowl_white_small_norm scene_5
