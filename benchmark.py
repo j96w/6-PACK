@@ -4,15 +4,15 @@ import numpy as np
 import math
 import _pickle as cPickle
 
-pred_data = "eval_results/TEST_" # result path
-pred_list = [1]                  # eval_id list
-data_dir = "My_NOCS"             # GT path
+pred_data = "eval_results/TEST_"
+pred_list = [1]      # eval_id list, if you want to test the mean score of TEST_1 and TEST_2, change to [1,2]
+data_dir = "My_NOCS"
 
 synset_names = ['BG', 
                 'bottle', 
                 'bowl', 
                 'camera', 
-                'can', 
+                'can',  
                 'laptop',
                 'mug'
                 ]
