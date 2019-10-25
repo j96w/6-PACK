@@ -17,7 +17,7 @@
 
 ## Overview
 
-This repository is the implementation code of the paper "6-PACK: Category-level 6D Pose Tracker with Anchor-Based Keypoints" ([arXiv](), [Project](https://sites.google.com/view/6packtracking), [Video](https://youtu.be/8Xb6dazqj10)) by Wang et al. at [Stanford Vision and Learning Lab](http://svl.stanford.edu/) and [Shanghai Jiao Tong University MVIG Lab](http://mvig.sjtu.edu.cn/). The model is used for category-level 6D object pose tracking. The architecture is designed based on prior work [DenseFusion](https://github.com/j96w/DenseFusion). In this repo, we provide our full implementation code of training/evaluation/inference of the 6-PACK model.
+This repository is the implementation code of the paper "6-PACK: Category-level 6D Pose Tracker with Anchor-Based Keypoints" ([arXiv](https://arxiv.org/abs/1910.10750), [Project](https://sites.google.com/view/6packtracking), [Video](https://youtu.be/8Xb6dazqj10)) by Wang et al. at [Stanford Vision and Learning Lab](http://svl.stanford.edu/) and [Shanghai Jiao Tong University MVIG Lab](http://mvig.sjtu.edu.cn/). The model is used for category-level 6D object pose tracking. The architecture is designed based on prior work [DenseFusion](https://github.com/j96w/DenseFusion). In this repo, we provide our full implementation code of training/evaluation/inference of the 6-PACK model.
 
 
 ## Requirements
@@ -114,12 +114,12 @@ lr = tf.TransformListener()
 ```
 
 ## Citations
-Please cite [6-PACK](https://sites.google.com/view/6packtracking) if you use this repository in your publications:
+Please cite [6-PACK](https://arxiv.org/abs/1910.10750) if you use this repository in your publications:
 ```
 @article{wang20196-pack,
   title={6-PACK: Category-level 6D Pose Tracker with Anchor-Based Keypoints},
   author={Wang, Chen and Mart{\'\i}n-Mart{\'\i}n, Roberto and Xu, Danfei and Lv, Jun and Lu, Cewu and Fei-Fei, Li and Savarese, Silvio and Zhu, Yuke},
-  journal={arXiv preprint arXiv},
+  journal={arXiv preprint arXiv:1910.10750},
   year={2019}
 }
 ```
