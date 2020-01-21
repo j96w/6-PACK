@@ -259,7 +259,8 @@ class Loss(_Loss):
         return new_r.detach().cpu().numpy()[0], new_t.detach().cpu().numpy()[0], Kp_dis.item()
 
     def inf_zero(self, Kp_fr):
-        new_t = torch.sum(Kp_fr * self.pconf2, dim=1).view(1, 3).contiguous()
+        pconf2 = self.pconf.view(1, self.num_key, 1)
+        new_t = torch.sum(Kp_fr * pconf2, dim=1).view(1, 3).contiguous()
 
         Kp_dis = torch.norm(new_t.view(-1))
 
