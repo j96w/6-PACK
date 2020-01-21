@@ -47,9 +47,11 @@ Please follow these steps to get the same dataset as we do:
 
 4. Unzip all the components of [NOCS-REAL275-additional.zip](https://drive.google.com/drive/folders/1FWNYJ1E7nMJe7FSK_jVD8YsuMrAVhmvJ?usp=sharing) into your `My_NOCS/` folder. After this step, you should have these directories: `My_NOCS/data_list`, `My_NOCS/data_pose`, `My_NOCS/model_pts` and `My_NOCS/model_scales`. Here the `model_pts` are the object pointclouds copied from [ShapeNetCore](https://www.shapenet.org/). The `model_scales` is calculated by us through finding the smallest fit 3D bbox on the object pointclouds.
 
-5. We also follow NOCS to use [COCO Dataset](http://cocodataset.org) for data augmentation. Download [COCO Train Images 2017](http://cocodataset.org/#download) and move the `train2017/` folder into `My_NOCS/` folder.
+5. Then, please also run `python data_preprocess.py` in the `6-PACK/dataset/` folder to generate the `.bbox` files we use for the training.
 
-Congratulations! Now you are having the exact same dataset as we do. All of our models for benchmarking and real robot experiments are trained on this dataset.
+6. We also follow NOCS to use [COCO Dataset](http://cocodataset.org) for data augmentation. Download [COCO Train Images 2017](http://cocodataset.org/#download) and move the `train2017/` folder into `My_NOCS/` folder.
+
+Now you are having the exact same dataset as we do. All of our models for benchmarking and real robot experiments are trained on this dataset.
 
 
 ## Training
