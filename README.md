@@ -121,8 +121,8 @@ Please cite [6-PACK](https://arxiv.org/abs/1910.10750) if you use this repositor
 @article{wang20196-pack,
   title={6-PACK: Category-level 6D Pose Tracker with Anchor-Based Keypoints},
   author={Wang, Chen and Mart{\'\i}n-Mart{\'\i}n, Roberto and Xu, Danfei and Lv, Jun and Lu, Cewu and Fei-Fei, Li and Savarese, Silvio and Zhu, Yuke},
-  journal={arXiv preprint arXiv:1910.10750},
-  year={2019}
+  booktitle={International Conference on Robotics and Automation (ICRA)},
+  year={2020}
 }
 ```
 
