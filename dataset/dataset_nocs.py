@@ -277,7 +277,7 @@ class Dataset(data.Dataset):
 
         if syn_or_real:
             target = []
-            input_file = open('{0}_bbox.txt'.format(choose_frame), 'r')
+            input_file = open('{0}_bbox.txt'.format(choose_frame.replace("data/", "data_pose/")), 'r')
             while 1:
                 input_line = input_file.readline()
                 if not input_line:

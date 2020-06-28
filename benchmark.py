@@ -145,7 +145,7 @@ def main():
             cls_test_num = 0
             cls_in_5_5 = 0
             cls_iou_25 = 0
-            cls_path = os.path.join(data_dir, "datalist/real_val", str(cls_idx))
+            cls_path = os.path.join(data_dir, "data_list/real_val", str(cls_idx))
             cls_rot = []
             cls_trans = []
             model_list = glob.glob(os.path.join(cls_path, "*"))
@@ -163,11 +163,11 @@ def main():
                     for img_path in list_file:
                         img_path = os.path.join(data_dir, "data", img_path)
                         img_path = img_path.replace("\n", "")
-                        gt_path = img_path + "_pose.txt"
-                        if not os.path.exists(gt_path):
+                        scene = img_path.split("/")[-2]
+                        nocs_gt_path = os.path.join(data_dir, "data", "gts", "real_test", "results_real_test_" + scene + "_" + img_path.split("/")[-1] + ".pkl")
+                        if not os.path.exists(nocs_gt_path):
                             continue
                         cls_num = cls_num + 1
-                        scene = img_path.split("/")[-2]
                         if scene != scene_his:
                             if scene_his != "":
                                 if not scene_his in score_dict[model_name]:
@@ -184,7 +184,7 @@ def main():
                         if not os.path.exists(pred_path):
                             print(pred_path)
                             continue 
-                        obj_path = gt_path.replace("pose", "obj")
+                        obj_path = img_path + "_meta.txt"
                         ins_id = -1
                         num_idx = 0
                         with open(obj_path, "r") as obj_f:
@@ -195,7 +195,6 @@ def main():
                                 num_idx = num_idx + 1
                         if ins_id == -1:
                             continue
-                        nocs_gt_path = os.path.join(data_dir, "data", "gts", "real_test", "results_real_test_" + scene + "_" + gt_path.split("/")[-1].split("_")[0] + ".pkl")
                         with open(nocs_gt_path, 'rb') as f:
                             result = cPickle.load(f)
                             gt_pose = result['gt_RTs'][num_idx]
@@ -219,7 +218,7 @@ def main():
                         gt_pose = np.array(gt_pose)
                         pred_pose = np.array(pred_pose)
                         result = compute_RT_degree_cm_symmetry(pred_pose, gt_pose, cls_idx, 1, synset_names)
-                        bbox = np.loadtxt(data_dir + "/scales/" + model_name + ".txt").transpose()
+                        bbox = np.loadtxt(data_dir + "/model_scales/" + model_name + ".txt").transpose()
                         miou = compute_3d_iou_new(gt_pose, pred_pose, bbox, bbox, 1, synset_names[cls_idx], synset_names[cls_idx])
                         cls_test_num = cls_test_num + 1
                         if miou > 0.25 and result[0] < 360:

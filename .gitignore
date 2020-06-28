@@ -1,0 +1,7 @@
+My_NOCS
+*/__pycache__/
+libs/knn/__pycache__/
+libs/knn/knn_pytorch/__pycache__/
+eval_results
+models
+dataset/eval_list/eval_list_1.txt
