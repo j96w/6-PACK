@@ -190,7 +190,7 @@ class Dataset(data.Dataset):
     def get_pose(self, choose_frame, choose_obj):
         has_pose = []
         pose = {}
-                if self.mode == "train":
+        if self.mode == "train":
             input_file = open('{0}_pose.txt'.format(choose_frame.replace("data/", "data_pose/")), 'r')
             while 1:
                 input_line = input_file.readline()
