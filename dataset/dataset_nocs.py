@@ -15,6 +15,7 @@ import math
 import scipy.misc
 import scipy.io as scio
 import cv2
+import _pickle as cPickle
 
 class Dataset(data.Dataset):
     def __init__(self, mode, root, add_noise, num_pt, num_cates, count, cate_id):
@@ -189,25 +190,38 @@ class Dataset(data.Dataset):
     def get_pose(self, choose_frame, choose_obj):
         has_pose = []
         pose = {}
-        input_file = open('{0}_pose.txt'.format(choose_frame.replace("data/", "data_pose/")), 'r')
-        while 1:
-            input_line = input_file.readline()
-            if not input_line:
-                break
-            if input_line[-1:] == '\n':
-                input_line = input_line[:-1]
-            input_line = input_line.split(' ')
-            if len(input_line) == 1:
-                idx = int(input_line[0])
-                has_pose.append(idx)
-                pose[idx] = []
-                for i in range(4):
-                    input_line = input_file.readline()
-                    if input_line[-1:] == '\n':
-                        input_line = input_line[:-1]
-                    input_line = input_line.split(' ')
-                    pose[idx].append([float(input_line[0]), float(input_line[1]), float(input_line[2]), float(input_line[3])])
-        input_file.close()
+                if self.mode == "train":
+            input_file = open('{0}_pose.txt'.format(choose_frame.replace("data/", "data_pose/")), 'r')
+            while 1:
+                input_line = input_file.readline()
+                if not input_line:
+                    break
+                if input_line[-1:] == '\n':
+                    input_line = input_line[:-1]
+                input_line = input_line.split(' ')
+                if len(input_line) == 1:
+                    idx = int(input_line[0])
+                    has_pose.append(idx)
+                    pose[idx] = []
+                    for i in range(4):
+                        input_line = input_file.readline()
+                        if input_line[-1:] == '\n':
+                            input_line = input_line[:-1]
+                        input_line = input_line.split(' ')
+                        pose[idx].append([float(input_line[0]), float(input_line[1]), float(input_line[2]), float(input_line[3])])
+            input_file.close()
+        if self.mode == "val":
+            with open('{0}/data/gts/real_test/results_real_test_{1}_{2}.pkl'.format(self.root, choose_frame.split("/")[-2], choose_frame.split("/")[-1]), 'rb') as f:
+                nocs_data = cPickle.load(f)
+            for idx in range(nocs_data['gt_RTs'].shape[0]):
+                idx = idx + 1
+                pose[idx] = nocs_data['gt_RTs'][idx-1]
+                pose[idx][:3, :3] = pose[idx][:3, :3] / np.cbrt(np.linalg.det(pose[idx][:3, :3]))
+                z_180_RT = np.zeros((4, 4), dtype=np.float32)
+                z_180_RT[:3, :3] = np.diag([-1, -1, 1])
+                z_180_RT[3, 3] = 1
+                pose[idx] = z_180_RT @ pose[idx]
+                pose[idx][:3,3] = pose[idx][:3,3] * 1000
 
         input_file = open('{0}_meta.txt'.format(choose_frame), 'r')
         while 1:
